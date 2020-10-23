@@ -4,7 +4,10 @@ import {
   Flex,
   Grid,
   Heading,
+  Icon,
   Input,
+  InputGroup,
+  InputLeftElement,
   Link,
   Text,
 } from "@chakra-ui/core";
@@ -41,21 +44,33 @@ export default function Home() {
         alignItems="stretch"
         padding={16}
       >
-        <Input
-          height="50px"
-          backgroundColor="gray.800"
-          focusBorderColor="purple.500"
-          borderRadius="sm"
-          placeholder="E-mail"
-        />
-        <Input
-          height="50px"
-          backgroundColor="gray.800"
-          focusBorderColor="purple.500"
-          borderRadius="sm"
-          placeholder="Senha"
-          marginTop={2}
-        />
+        <InputGroup>
+          <InputLeftElement
+            marginTop="5px"
+            children={<Icon name="email" color="gray.500" />}
+          />
+          <Input
+            height="50px"
+            backgroundColor="gray.800"
+            focusBorderColor="purple.500"
+            borderRadius="sm"
+            placeholder="E-mail"
+          />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftElement
+            marginTop="12px"
+            children={<Icon name="unlock" color="gray.500" />}
+          />
+          <Input
+            height="50px"
+            backgroundColor="gray.800"
+            focusBorderColor="purple.500"
+            borderRadius="sm"
+            placeholder="Senha"
+            marginTop={2}
+          />
+        </InputGroup>
         <Link
           alignSelf="flex-start"
           marginTop={2}
