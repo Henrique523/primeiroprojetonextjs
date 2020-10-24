@@ -1,19 +1,27 @@
 // import Head from "next/head";
 import {
+  Box,
   Button,
   Flex,
   Grid,
   Heading,
   Icon,
+  IconButton,
   Input,
   InputGroup,
   InputLeftElement,
+  InputRightElement,
   Link,
   Text,
 } from "@chakra-ui/core";
 import Divider from "../components/Divider";
+import { GoMarkGithub } from "react-icons/go";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
 
 export default function Home() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <Grid
       as="main"
@@ -47,7 +55,7 @@ export default function Home() {
         <InputGroup>
           <InputLeftElement
             marginTop="5px"
-            children={<Icon name="email" color="gray.500" />}
+            children={<Icon name="email" color="gray.600" />}
           />
           <Input
             height="50px"
@@ -60,7 +68,7 @@ export default function Home() {
         <InputGroup>
           <InputLeftElement
             marginTop="12px"
-            children={<Icon name="unlock" color="gray.500" />}
+            children={<Icon name="lock" color="gray.600" />}
           />
           <Input
             height="50px"
@@ -68,7 +76,20 @@ export default function Home() {
             focusBorderColor="purple.500"
             borderRadius="sm"
             placeholder="Senha"
+            type={showPassword ? "text" : "password"}
             marginTop={2}
+          />
+          <InputRightElement
+            marginTop="13px"
+            children={
+              <IconButton
+                aria-label="Ver Senha"
+                variant="ghost"
+                variantColor="purple"
+                icon={showPassword ? AiFillEye : AiFillEyeInvisible}
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            }
           />
         </InputGroup>
         <Link
@@ -114,6 +135,12 @@ export default function Home() {
             borderRadius="sm"
             _hover={{ backgroundColor: "purple.500" }}
           >
+            <Box
+              as={GoMarkGithub}
+              size="5"
+              color="white.300"
+              marginRight="8px"
+            />
             GITHUB
           </Button>
         </Flex>
